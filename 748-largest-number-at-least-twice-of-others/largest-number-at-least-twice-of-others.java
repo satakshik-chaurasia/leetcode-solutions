@@ -1,16 +1,25 @@
 class Solution {
     public int dominantIndex(int[] nums) {
-      int n=nums.length;
-      int[] temp=nums.clone();
-      Arrays.sort(temp);
-        int max=temp[n-1];
-        int sec=temp[n-2];
-        if(max<2*sec)
-        return -1;
+        int n = nums.length;
+
+        // Step 1: find max element and its index
+        int max = 0;
+        int idx = 0;
+
         for(int i = 0; i < n; i++) {
-            if(nums[i] == max) return i;
+            if(nums[i] > max) {
+                max = nums[i];
+                idx = i;
+            }
         }
 
-        return -1;
+        // Step 2: check dominant condition
+        for(int i = 0; i < n; i++) {
+            if(i != idx && max < 2 * nums[i]) {
+                return -1;
+            }
+        }
+
+        return idx;
     }
 }
