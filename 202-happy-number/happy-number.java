@@ -15,7 +15,7 @@ class Solution {
             slow=happy(slow);
             fast=happy(fast);
             fast=happy(fast);
-            while(fast==slow&&slow!=1){
+            while(fast==slow&&fast!=1){
                 return false;
             }
         }
