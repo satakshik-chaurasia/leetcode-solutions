@@ -1,18 +1,27 @@
-# LeetCode Solutions 🚀
+# LeetCode DSA Solutions 🚀
 
-This repository contains my daily LeetCode practice problems as I prepare for placements.
+This repository contains my daily LeetCode practice solutions in Java (and some Python).
 
 ## Topics Covered
+
 - Arrays
 - Strings
-- Linked List
+- Linked Lists
+- Two Pointers
+- Sliding Window
 - Recursion
+- Binary Search
+- Hashing
 - Stack & Queue
-- Trees
-- Dynamic Programming (coming soon)
 
-## Language Used
-- Java ☕
+## Languages Used
 
-## Goal
-- Solve 200+ problems before placement season.
+- Java (Primary)
+- Python (Secondary)
+
+## Goals
+
+- Strengthen Data Structures & Algorithms
+- Prepare for coding interviews
+- Maintain daily consistency
+
