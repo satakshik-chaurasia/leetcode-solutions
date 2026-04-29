@@ -1,0 +1,59 @@
+1#include <vector>
+2
+3using namespace std;
+4
+5class Solution {
+6public:
+7    /**
+8     * Finds all valid elements in the given array nums based on two conditions:
+9     * 1. Strictly greater than every element to its left.
+10     * 2. Strictly greater than every element to its right.
+11     * The first and last elements are always valid.
+12     * Returns an array of valid elements in their original order.
+13     */
+14    vector<int> findValidElements(vector<int>& nums) {
+15        int n = nums.size();
+16        if (n == 0) return {};
+17        
+18        // Use a boolean array to track which elements meet the criteria.
+19        // Boolean vector is used for efficiency.
+20        vector<bool> isValid(n, false);
+21        isValid[0] = true; // First element is always valid.
+22        
+23        if (n > 1) {
+24            isValid[n - 1] = true; // Last element is always valid.
+25            
+26            // Check the "strictly greater than every element to its left" condition.
+27            // nums[i] satisfies this if it is greater than the maximum of all previous elements.
+28            int maxLeft = nums[0];
+29            for (int i = 1; i < n - 1; i++) {
+30                if (nums[i] > maxLeft) {
+31                    isValid[i] = true;
+32                    maxLeft = nums[i]; // Update running maximum.
+33                }
+34            }
+35            
+36            // Check the "strictly greater than every element to its right" condition.
+37            // nums[i] satisfies this if it is greater than the maximum of all subsequent elements.
+38            int maxRight = nums[n - 1];
+39            for (int i = n - 2; i > 0; i--) {
+40                if (nums[i] > maxRight) {
+41                    isValid[i] = true;
+42                    maxRight = nums[i]; // Update running maximum.
+43                }
+44            }
+45        }
+46        
+47        // Collect indices marked as valid into the result vector while preserving order.
+48        vector<int> result;
+49        for (int i = 0; i < n; i++) {
+50            if (isValid[i]) {
+51                result.push_back(nums[i]);
+52            }
+53        }
+54        
+55        return result;
+56    }
+57};
+58
+59
